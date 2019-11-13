@@ -54,7 +54,7 @@ function cacheBustTask(){
 function watchTask(){
     watch([files.scssPath, files.jsPath], 
         series(
-            parallel(scssTask, jsTask),
+            parallel(scssTask), //, jsTask
             cacheBustTask
         )
     );    
@@ -64,7 +64,7 @@ function watchTask(){
 // Runs the scss and js tasks simultaneously
 // then runs cacheBust, then watch task
 exports.default = series(
-    parallel(scssTask, jsTask),
+    parallel(scssTask), //, jsTask
     cacheBustTask,
     watchTask
 );

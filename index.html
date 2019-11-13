@@ -18,14 +18,14 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/1f5ec93053.js" crossorigin="anonymous"></script>
     <!-- CSS File -->
-    <link rel="stylesheet" href="dist/style.css?cb=1573249533885">
+    <link rel="stylesheet" href="dist/style.css?cb=1573683047687">
 </head>
 
 <body>
 
     <main>
         <div class="modal" id="start">
-            <div id="start-content">
+            <div class="modal-content" id="start-content">
                 <h2>Choose Your Player</h2>
 
                 <h4>
@@ -34,7 +34,22 @@
                 </h4>
 
             </div>
-
+        </div>
+        <div class="modal win-modal" id="you-win">
+            <div class="win-content modal-content">
+                <h2>You win!</h2>
+                <h4>
+                    <button class="select new-game">New Game</button>
+                </h4>
+            </div>
+        </div>
+        <div class="modal win-modal" id="you-lose">
+            <div class="win-content modal-content">
+                <h2>You lose!</h2>
+                <h4>
+                    <button class="select new-game">New Game</button>
+                </h4>
+            </div>
         </div>
 
         <div id="game">
@@ -51,7 +66,7 @@
                 <div class="square playable sq-9" id="9"><i class="fas fa-times x-play icon"></i><i class="far fa-circle o-play icon"></i></div>
             </div>
             <div id="new-game">
-                <button class="select" id="start-new">Start new game</button>
+                <button class="select new-game" id="start-new">Start new game</button>
             </div>
         </div>
 

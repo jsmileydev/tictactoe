@@ -48,16 +48,20 @@ main {
     background-color: rgba(0,0,0,0.4);
 }
 
-#start-content {
+.modal-content {
     position: fixed;
-    width: 600px;
+    min-width: 300px;
     height: auto;
-    padding: 2em;
+    padding: 1.5em;
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: slateblue;
     border-radius: 12px;
+}
+
+.win-modal {
+    display: none;
 }
 
 .select  {
