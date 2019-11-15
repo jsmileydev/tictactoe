@@ -30,7 +30,7 @@
 
                 <h4>
                     <div id="toggle-icon">
-                        <input type="radio" id="x" value="icon-x" name="icon-select"/>
+                        <input type="radio" id="x" value="icon-x" name="icon-select" />
                         <label for="x"><i class="fas fa-times" id="x-select"></i></label>
                         <input type="radio" id="o" value="icon-o" name="icon-select" />
                         <label for="o"><i class="far fa-circle" id="circle-select"></i></label>
@@ -51,9 +51,17 @@
                 </p>
             </div>
         </div>
-        <div class="modal win-modal" id="you-lose">
-            <div class="win-content modal-content">
+        <div class="modal lose-modal" id="you-lose">
+            <div class="lose-content modal-content">
                 <h2>You lose!</h2>
+                <h4>
+                    <button class="select new-game">New Game</button>
+                </h4>
+            </div>
+        </div>
+        <div class="modal tie-modal" id="you-tie">
+            <div class="tie-content modal-content">
+                <h2>It's a tie!</h2>
                 <h4>
                     <button class="select new-game">New Game</button>
                 </h4>
@@ -62,35 +70,39 @@
 
         <div id="game">
             <h1>Tic Tac Toe</h1>
-            <div id="board">
-                <div class="square playable sq-1" id="1"><i class="fas fa-times x-play icon"></i><i
-                        class="far fa-circle o-play icon"></i></div>
-                <div class="square playable sq-2" id="2"><i class="fas fa-times x-play icon"></i><i
-                        class="far fa-circle o-play icon"></i></div>
-                <div class="square playable sq-3" id="3"><i class="fas fa-times x-play icon"></i><i
-                        class="far fa-circle o-play icon"></i></div>
-                <div class="square playable sq-4" id="4"><i class="fas fa-times x-play icon"></i><i
-                        class="far fa-circle o-play icon"></i></div>
-                <div class="square playable sq-5" id="5"><i class="fas fa-times x-play icon"></i><i
-                        class="far fa-circle o-play icon"></i></div>
-                <div class="square playable sq-6" id="6"><i class="fas fa-times x-play icon"></i><i
-                        class="far fa-circle o-play icon"></i></div>
-                <div class="square playable sq-7" id="7"><i class="fas fa-times x-play icon"></i><i
-                        class="far fa-circle o-play icon"></i></div>
-                <div class="square playable sq-8" id="8"><i class="fas fa-times x-play icon"></i><i
-                        class="far fa-circle o-play icon"></i></div>
-                <div class="square playable sq-9" id="9"><i class="fas fa-times x-play icon"></i><i
-                        class="far fa-circle o-play icon"></i></div>
+            <div class="row">
+                <div id="board" class="col">
+                    <div class="square playable sq-1" id="1"><i class="fas fa-times x-play icon"></i><i
+                            class="far fa-circle o-play icon"></i></div>
+                    <div class="square playable sq-2" id="2"><i class="fas fa-times x-play icon"></i><i
+                            class="far fa-circle o-play icon"></i></div>
+                    <div class="square playable sq-3" id="3"><i class="fas fa-times x-play icon"></i><i
+                            class="far fa-circle o-play icon"></i></div>
+                    <div class="square playable sq-4" id="4"><i class="fas fa-times x-play icon"></i><i
+                            class="far fa-circle o-play icon"></i></div>
+                    <div class="square playable sq-5" id="5"><i class="fas fa-times x-play icon"></i><i
+                            class="far fa-circle o-play icon"></i></div>
+                    <div class="square playable sq-6" id="6"><i class="fas fa-times x-play icon"></i><i
+                            class="far fa-circle o-play icon"></i></div>
+                    <div class="square playable sq-7" id="7"><i class="fas fa-times x-play icon"></i><i
+                            class="far fa-circle o-play icon"></i></div>
+                    <div class="square playable sq-8" id="8"><i class="fas fa-times x-play icon"></i><i
+                            class="far fa-circle o-play icon"></i></div>
+                    <div class="square playable sq-9" id="9"><i class="fas fa-times x-play icon"></i><i
+                            class="far fa-circle o-play icon"></i></div>
+                </div>
+                <div class="col" id="total-wins">
+                    <h4>Total Wins</h4>
+                    <p>Player: <span id="player-wins"></span></p>
+                    <p>Computer: <span id="comp-wins"></span></p>
+                    <p>Draw: <span id="draws"></span></p>
+                    <button id="reset-wins">Reset</button>
+                </div>
             </div>
-            <div id="total-wins">
-                <h4>Total Wins</h4>
-                <p>Player: <span id="player-wins"></span></p>
-                <p>Computer: <span id="comp-wins"></span></p>
-                <p>Draw: <span id="draws"></span></p>
-            </div>
-            <div id="new-game">
-                <button class="select new-game" id="start-new">Start new game</button>
-            </div>
+        </div>
+        <div id="new-game">
+            <button class="select new-game" id="start-new">Start new game</button>
+        </div>
         </div>
 
     </main>

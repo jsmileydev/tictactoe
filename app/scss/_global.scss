@@ -168,7 +168,7 @@ main {
 	border-radius: 12px;
 }
 
-.win-modal {
+.win-modal, .lose-modal, .tie-modal {
 	display: none;
 }
 
@@ -225,4 +225,8 @@ main {
 
 #new-game {
 	margin: 3em auto;
+}
+
+#total-wins {
+    text-align: left;
 }

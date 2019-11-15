@@ -15,6 +15,7 @@ var game = {
 var startModal = document.getElementById('start');
 var winModal = document.getElementById('you-win');
 var loseModal = document.getElementById('you-lose');
+var tieModal = document.getElementById('you-tie');
 var sqList = document.getElementsByClassName('square');
 var playList = document.getElementsByClassName('playable');
 var xList = document.getElementsByClassName('x-play');
@@ -47,6 +48,7 @@ function newGame() {
     startModal.style.display = 'block';
     winModal.style.display = 'none';
     loseModal.style.display = 'none';
+    tieModal.style.display = 'none';
     var icon = document.getElementsByClassName('icon');
     var i = 0;
     var k = 0;
@@ -132,14 +134,14 @@ function checkWinner(squares) {
     function showModal(modal) {
         return modal.style.display = 'block';
     }
-    if (playList.length === 0) {
-    }
     for (; i < winSet.length; i++) {
         game.win = winSet[i].every(element => squares.indexOf(element) !== -1);
         if (game.win) {
             win = winSet[i];
             if (game.turn === 1 ? setTimeout(showModal(loseModal), 400) : setTimeout(showModal(winModal), 400));
             break;
+        } else if (!game.win && playList.length === 0) {
+            setTimeout(showModal(tieModal), 400);
         }
     }
     return game.win;
