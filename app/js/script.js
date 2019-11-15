@@ -26,13 +26,22 @@ var winSet = [
 var userSquares = [];
 var compSquares = [];
 
-document.getElementById('x').onclick = function(){selectPlyr('x')};
-document.getElementById('o').onclick = function(){selectPlyr('o')};
+//document.getElementById('x').onclick = function(){selectPlyr('x')};
+//document.getElementById('o').onclick = function(){selectPlyr('o')};
+document.getElementById('first').onclick = function(){selectPlyr('first')};
+document.getElementById('second').onclick = function(){selectPlyr('second')};
 document.getElementById('start-new').onclick = newGame;
 for (let i = 0; i < startBtn.length; i++) {
     startBtn[i].addEventListener('click', newGame);
 }
 
+
+function attachClickEvent() {
+    var i = 0;
+    for (; i < sqList.length; i++) {
+        sqList[i].addEventListener('click', clickSquare);
+    }
+}
 
 function newGame() {
     startModal.style.display = 'block';
@@ -57,12 +66,20 @@ function newGame() {
     attachClickEvent();
 }
 
-function attachClickEvent() {
-    var i = 0;
-    for (; i < sqList.length; i++) {
-        sqList[i].addEventListener('click', clickSquare);
+function selectPlyr(id) {
+    startModal.style.display = 'none';
+    if (id === 'second') {        
+        setTimeout(computerMove, 400);
     }
-}
+    if (document.getElementById('x').checked) {
+        game.user = 'x';
+        game.computer = 'o';
+    } else if (document.getElementById('o').checked) {
+        game.user = 'o';
+        game.computer = 'x';
+    }
+    console.log('start ' + id);
+};
 
 function computerMove() {
     var randomPlay = Math.floor((Math.random() * playList.length));
@@ -86,19 +103,6 @@ function computerMove() {
         checkWinner(compSquares);
     }
 }
-
-function selectPlyr(id) {
-    startModal.style.display = 'none';
-    if (id === 'x') {
-        game.user = 'x';
-        game.computer = 'o';
-    } else if (id === 'o') {
-        game.user = 'o';
-        game.computer = 'x';
-    }
-    console.log('start ' + id);
-    setTimeout(computerMove, 400);
-};
 
 function clickSquare(e) {
     var elId = e.target.id;
