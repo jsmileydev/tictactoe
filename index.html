@@ -18,7 +18,7 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/1f5ec93053.js" crossorigin="anonymous"></script>
     <!-- CSS File -->
-    <link rel="stylesheet" href="dist/style.css?cb=1573762422534">
+    <link rel="stylesheet" href="dist/style.css?cb=1573840462790">
 </head>
 
 <body>
@@ -30,9 +30,9 @@
 
                 <h4>
                     <div id="toggle-icon">
-                        <input type="radio" id="x" value="icon-x" name="icon-x"/>
+                        <input type="radio" id="x" value="icon-x" name="icon-select"/>
                         <label for="x"><i class="fas fa-times" id="x-select"></i></label>
-                        <input type="radio" id="o" value="icon-o" name="icon-o" />
+                        <input type="radio" id="o" value="icon-o" name="icon-select" />
                         <label for="o"><i class="far fa-circle" id="circle-select"></i></label>
                     </div>
                     <div id="choose-order">
@@ -81,6 +81,12 @@
                         class="far fa-circle o-play icon"></i></div>
                 <div class="square playable sq-9" id="9"><i class="fas fa-times x-play icon"></i><i
                         class="far fa-circle o-play icon"></i></div>
+            </div>
+            <div id="total-wins">
+                <h4>Total Wins</h4>
+                <p>Player: <span id="player-wins"></span></p>
+                <p>Computer: <span id="comp-wins"></span></p>
+                <p>Draw: <span id="draws"></span></p>
             </div>
             <div id="new-game">
                 <button class="select new-game" id="start-new">Start new game</button>

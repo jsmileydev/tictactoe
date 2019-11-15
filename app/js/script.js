@@ -68,15 +68,16 @@ function newGame() {
 
 function selectPlyr(id) {
     startModal.style.display = 'none';
-    if (id === 'second') {        
-        setTimeout(computerMove, 400);
-    }
+    game.win = false;
     if (document.getElementById('x').checked) {
         game.user = 'x';
         game.computer = 'o';
     } else if (document.getElementById('o').checked) {
         game.user = 'o';
         game.computer = 'x';
+    }
+    if (id === 'second') {        
+        setTimeout(computerMove, 400);
     }
     console.log('start ' + id);
 };
@@ -130,6 +131,8 @@ function checkWinner(squares) {
     var i = 0;
     function showModal(modal) {
         return modal.style.display = 'block';
+    }
+    if (playList.length === 0) {
     }
     for (; i < winSet.length; i++) {
         game.win = winSet[i].every(element => squares.indexOf(element) !== -1);

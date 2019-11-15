@@ -16,6 +16,8 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
 	outline: dotted 1px #ccc;
 	outline-offset: .45rem;
 }
+@mixin checkedBg {
+}
 @mixin hideInput {
 	width: 0;
 	height: 0;
@@ -42,7 +44,8 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
-	align-items: stretch;
+    align-items: stretch;
+    color: $black;
 	input[type="radio"] {
 		@include hideInput;
 	}
@@ -79,11 +82,11 @@ $activeShadow: 0 0 10px rgba($teal1, .5);
 		border-color: $darkNavy;
 	}
 	input[type="radio"]:checked + label {
-		background-color: $teal2;
-		color: #fff;
-		box-shadow: $activeShadow;
-		border-color: $teal2;
-		z-index: 1;
+        background-color: $teal2;
+        color: #fff;
+        box-shadow: $activeShadow;
+        border-color: $teal2;
+        z-index: 1;
 	}
 	input[type="radio"]:focus + label {
 		@include focusOutline;
@@ -171,7 +174,7 @@ main {
 
 .select {
 	height: 2.5em;
-	min-width: 4em;
+	min-width: 8em;
     background-color: $teal2;
     color: #fff;
 	margin: 0 1em;
