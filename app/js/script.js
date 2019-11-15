@@ -32,6 +32,7 @@ var compSquares = [];
 
 document.getElementById('first').onclick = function(){selectPlyr('first')};
 document.getElementById('second').onclick = function(){selectPlyr('second')};
+document.getElementById('reset-wins').onclick = function(){resetWinTotals()};
 document.getElementById('start-new').onclick = newGame;
 for (let i = 0; i < startBtn.length; i++) {
     startBtn[i].addEventListener('click', newGame);
@@ -104,7 +105,6 @@ function computerMove() {
         }
         console.log('Square: ' + compPlay.classList);
         console.log('Compsquare: ' + compSquares.sort());
-        console.log(checkWinner(compSquares));
         checkWinner(compSquares);
     }
 }
@@ -126,7 +126,6 @@ function clickSquare(e) {
     game.turn = 2;
     console.log('Square: ' + e.target.classList);
     console.log('Usersquares: ' + userSquares.sort());
-    console.log(checkWinner(userSquares));
     checkWinner(userSquares);
 }
 
@@ -136,31 +135,48 @@ function checkWinner(squares) {
         return modal.style.display = 'block';
     }
     for (; i < winSet.length; i++) {
-        game.win = winSet[i].every(element => squares.indexOf(element) !== -1);
-        if (game.win) {
+        var win = winSet[i].every(element => squares.indexOf(element) !== -1);
+        if (win) {
+            game.win = true;
             win = winSet[i];
             document.getElementById(win[0]).style.color = 'green';
             document.getElementById(win[1]).style.color = 'green';
             document.getElementById(win[2]).style.color = 'green';
             if (game.turn === 1) {
                 setTimeout(function() {showModal(loseModal) } , 600);
-                game.compWins++;
+                console.log(game.compWins);
+                game.compWins += 1;
                 document.getElementById('comp-wins').textContent = game.compWins; 
+                console.log(game.compWins);
                 break;
             }  else if (game.turn === 2) {
                 setTimeout(function() {showModal(winModal)} , 600);
-                game.userWins++;
+                console.log(game.userWins);
+                game.userWins += 1;
                 document.getElementById('user-wins').textContent = game.userWins;
+                console.log(game.userWins);
                 break;
             }
         } else if (!game.win && playList.length === 0) {
+            console.log(game.win);
             setTimeout(function() {showModal(tieModal)}, 600);
-            game.ties++;
+            console.log(game.ties);
+            game.ties += 1;
             document.getElementById('ties').textContent = game.ties;
+            console.log(game.ties);
             break;
         }
     }
     return game.win;
+}
+
+function resetWinTotals() {
+    game.userWins = 0;
+    document.getElementById('user-wins').textContent = game.userWins;
+    game.compWins = 0;    
+    document.getElementById('comp-wins').textContent = game.compWins; 
+    game.ties = 0;
+    document.getElementById('ties').textContent = game.ties;
 }
 
 window.onload = attachClickEvent;
