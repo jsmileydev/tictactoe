@@ -30,8 +30,6 @@ var winSet = [
 var userSquares = [];
 var compSquares = [];
 
-//document.getElementById('x').onclick = function(){selectPlyr('x')};
-//document.getElementById('o').onclick = function(){selectPlyr('o')};
 document.getElementById('first').onclick = function(){selectPlyr('first')};
 document.getElementById('second').onclick = function(){selectPlyr('second')};
 document.getElementById('start-new').onclick = newGame;
@@ -61,6 +59,7 @@ function newGame() {
     }
     for(; k < sqList.length; k++) {
         sqList[k].classList.add('playable');
+        sqList[k].style.color = 'black';
         console.log('set squares to playable');
     }
     console.log('new game');
@@ -98,7 +97,6 @@ function computerMove() {
         compPlay.removeEventListener('click', clickSquare);
         compPlay.classList.toggle('playable');
         game.turn = 1;
-        game.userTurn = true;
         if (game.computer === 'x') {
             icon[0].style.display = 'inline-block';
         } else if (game.computer === 'o') {
@@ -126,7 +124,6 @@ function clickSquare(e) {
         }
     }
     game.turn = 2;
-    game.userTurn = false;
     console.log('Square: ' + e.target.classList);
     console.log('Usersquares: ' + userSquares.sort());
     console.log(checkWinner(userSquares));
@@ -142,19 +139,22 @@ function checkWinner(squares) {
         game.win = winSet[i].every(element => squares.indexOf(element) !== -1);
         if (game.win) {
             win = winSet[i];
+            document.getElementById(win[0]).style.color = 'green';
+            document.getElementById(win[1]).style.color = 'green';
+            document.getElementById(win[2]).style.color = 'green';
             if (game.turn === 1) {
-                setTimeout(showModal(loseModal), 400);
+                setTimeout(function() {showModal(loseModal) } , 600);
                 game.compWins++;
                 document.getElementById('comp-wins').textContent = game.compWins; 
                 break;
             }  else if (game.turn === 2) {
-                setTimeout(showModal(winModal), 400);
+                setTimeout(function() {showModal(winModal)} , 600);
                 game.userWins++;
-                document.getElementById('player-wins').textContent = game.userWins;
+                document.getElementById('user-wins').textContent = game.userWins;
                 break;
             }
         } else if (!game.win && playList.length === 0) {
-            setTimeout(showModal(tieModal), 400);
+            setTimeout(function() {showModal(tieModal)}, 600);
             game.ties++;
             document.getElementById('ties').textContent = game.ties;
             break;
