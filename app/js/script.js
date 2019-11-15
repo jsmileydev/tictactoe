@@ -9,7 +9,10 @@ var game = {
     computer: '',
     turn: null,
     userTurn: false,
-    win: false
+    win: false,
+    userWins: 0,
+    compWins: 0,
+    ties: 0
 };
 
 var startModal = document.getElementById('start');
@@ -79,6 +82,7 @@ function selectPlyr(id) {
         game.computer = 'x';
     }
     if (id === 'second') {        
+        game.turn = 2;
         setTimeout(computerMove, 400);
     }
     console.log('start ' + id);
@@ -138,10 +142,22 @@ function checkWinner(squares) {
         game.win = winSet[i].every(element => squares.indexOf(element) !== -1);
         if (game.win) {
             win = winSet[i];
-            if (game.turn === 1 ? setTimeout(showModal(loseModal), 400) : setTimeout(showModal(winModal), 400));
-            break;
+            if (game.turn === 1) {
+                setTimeout(showModal(loseModal), 400);
+                game.compWins++;
+                document.getElementById('comp-wins').textContent = game.compWins; 
+                break;
+            }  else if (game.turn === 2) {
+                setTimeout(showModal(winModal), 400);
+                game.userWins++;
+                document.getElementById('player-wins').textContent = game.userWins;
+                break;
+            }
         } else if (!game.win && playList.length === 0) {
             setTimeout(showModal(tieModal), 400);
+            game.ties++;
+            document.getElementById('ties').textContent = game.ties;
+            break;
         }
     }
     return game.win;
