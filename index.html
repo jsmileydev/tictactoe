@@ -71,33 +71,38 @@
         <div id="game">
             <h1>Tic Tac Toe</h1>
             <div class="row">
-                <div id="board" class="col">
-                    <div class="square playable sq-1" id="1"><i class="fas fa-times x-play icon"></i><i
-                            class="far fa-circle o-play icon"></i></div>
-                    <div class="square playable sq-2" id="2"><i class="fas fa-times x-play icon"></i><i
-                            class="far fa-circle o-play icon"></i></div>
-                    <div class="square playable sq-3" id="3"><i class="fas fa-times x-play icon"></i><i
-                            class="far fa-circle o-play icon"></i></div>
-                    <div class="square playable sq-4" id="4"><i class="fas fa-times x-play icon"></i><i
-                            class="far fa-circle o-play icon"></i></div>
-                    <div class="square playable sq-5" id="5"><i class="fas fa-times x-play icon"></i><i
-                            class="far fa-circle o-play icon"></i></div>
-                    <div class="square playable sq-6" id="6"><i class="fas fa-times x-play icon"></i><i
-                            class="far fa-circle o-play icon"></i></div>
-                    <div class="square playable sq-7" id="7"><i class="fas fa-times x-play icon"></i><i
-                            class="far fa-circle o-play icon"></i></div>
-                    <div class="square playable sq-8" id="8"><i class="fas fa-times x-play icon"></i><i
-                            class="far fa-circle o-play icon"></i></div>
-                    <div class="square playable sq-9" id="9"><i class="fas fa-times x-play icon"></i><i
-                            class="far fa-circle o-play icon"></i></div>
+                <div class="col" id="board-col">
+                    <div id="board">
+                        <div class="square playable sq-1" id="1"><i class="fas fa-times x-play icon"></i><i
+                                class="far fa-circle o-play icon"></i></div>
+                        <div class="square playable sq-2" id="2"><i class="fas fa-times x-play icon"></i><i
+                                class="far fa-circle o-play icon"></i></div>
+                        <div class="square playable sq-3" id="3"><i class="fas fa-times x-play icon"></i><i
+                                class="far fa-circle o-play icon"></i></div>
+                        <div class="square playable sq-4" id="4"><i class="fas fa-times x-play icon"></i><i
+                                class="far fa-circle o-play icon"></i></div>
+                        <div class="square playable sq-5" id="5"><i class="fas fa-times x-play icon"></i><i
+                                class="far fa-circle o-play icon"></i></div>
+                        <div class="square playable sq-6" id="6"><i class="fas fa-times x-play icon"></i><i
+                                class="far fa-circle o-play icon"></i></div>
+                        <div class="square playable sq-7" id="7"><i class="fas fa-times x-play icon"></i><i
+                                class="far fa-circle o-play icon"></i></div>
+                        <div class="square playable sq-8" id="8"><i class="fas fa-times x-play icon"></i><i
+                                class="far fa-circle o-play icon"></i></div>
+                        <div class="square playable sq-9" id="9"><i class="fas fa-times x-play icon"></i><i
+                                class="far fa-circle o-play icon"></i></div>
+                    </div>
                 </div>
-                <aside class="col" id="total-wins">
-                    <h4>Total Wins</h4>
-                    <p>Player: <span id="player-wins">0</span></p>
-                    <p>Computer: <span id="comp-wins">0</span></p>
-                    <p>Draw: <span id="ties">0</span></p>
-                    <button id="reset-wins">Reset</button>
-                </aside>
+                <div class="col" id="win-col">
+                    <aside id="total-wins">
+                        <h4>Total Wins</h4>
+                        <p>Player: <span id="player-wins">0</span></p>
+                        <p>Computer: <span id="comp-wins">0</span></p>
+                        <p>Draw: <span id="ties">0</span></p>
+                        <button class="select" id="reset-wins">Reset</button>
+                    </aside>
+                </div>
+
             </div>
         </div>
         <div id="new-game">

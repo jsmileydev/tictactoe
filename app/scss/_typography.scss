@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600'); 
-$open-sans: 'Open Sans', 'Helvetica', sans-serif;
 
 h1, h2, h3 {
     font-weight: 700;
@@ -37,4 +36,8 @@ h3 {
 .square {
 	line-height: 75px;
 	font-size: 3.25em;
+}
+
+#total-wins {
+    text-align: left;
 }
