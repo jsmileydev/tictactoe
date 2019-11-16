@@ -34,7 +34,8 @@ document.getElementById('first').onclick = function(){selectPlyr('first')};
 document.getElementById('second').onclick = function(){selectPlyr('second')};
 document.getElementById('reset-wins').onclick = function(){resetWinTotals()};
 document.getElementById('start-new').onclick = newGame;
-for (let i = 0; i < startBtn.length; i++) {
+var i = 0;
+for (; i < startBtn.length; i++) {
     startBtn[i].addEventListener('click', newGame);
 }
 
@@ -135,7 +136,9 @@ function checkWinner(squares) {
         return modal.style.display = 'block';
     }
     for (; i < winSet.length; i++) {
-        var win = winSet[i].every(element => squares.indexOf(element) !== -1);
+        var win = winSet[i].every(function (element) {
+            return squares.indexOf(element) !== -1;
+          });
         if (win) {
             game.win = true;
             win = winSet[i];

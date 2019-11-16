@@ -1,3 +1,12 @@
+Tic tac toe game made with vanilla Javascript. 
+
+Choices of playing as X or O, and first or second player. Win and tie counter on the side.
+
+Created using thecodercoder's [Front-end Boilerplate using Sass and Gulp 4](https://github.com/thecodercoder/frontend-boilerplate)
+
+A further experiment in learning to use Gulp and reinforcing working with vanilla Javascript. 
+
+
 # Front-end Boilerplate using Sass and Gulp 4
 
 Using a set of boilerplate files when you're starting a website project can be a huge time-saver. Instead of having to start from scratch or copy and paste from previous projects, you can get up and running in just a minute or two.
