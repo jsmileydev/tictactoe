@@ -2,9 +2,9 @@ Tic tac toe game made with vanilla Javascript.
 
 Choices of playing as X or O, and first or second player. Win and tie counter on the side.
 
-Created using thecodercoder's [Front-end Boilerplate using Sass and Gulp 4](https://github.com/thecodercoder/frontend-boilerplate)
+A project for learning to use Gulp and reinforcing working with vanilla Javascript. 
 
-A further experiment in learning to use Gulp and reinforcing working with vanilla Javascript. 
+Created using thecodercoder's [Front-end Boilerplate using Sass and Gulp 4](https://github.com/thecodercoder/frontend-boilerplate)
 
 
 # Front-end Boilerplate using Sass and Gulp 4

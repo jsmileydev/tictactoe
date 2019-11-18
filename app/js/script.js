@@ -21,8 +21,6 @@ var loseModal = document.getElementById('you-lose');
 var tieModal = document.getElementById('you-tie');
 var sqList = document.getElementsByClassName('square');
 var playList = document.getElementsByClassName('playable');
-var xList = document.getElementsByClassName('x-play');
-var oList = document.getElementsByClassName('o-play');
 var startBtn = document.getElementsByClassName('new-game');
 var winSet = [
     [1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9], [3,5,7] 
@@ -34,15 +32,13 @@ document.getElementById('first').onclick = function(){selectPlyr('first')};
 document.getElementById('second').onclick = function(){selectPlyr('second')};
 document.getElementById('reset-wins').onclick = function(){resetWinTotals()};
 document.getElementById('start-new').onclick = newGame;
-var i = 0;
-for (; i < startBtn.length; i++) {
+for (var i = 0; i < startBtn.length; i++) {
     startBtn[i].addEventListener('click', newGame);
 }
 
 
 function attachClickEvent() {
-    var i = 0;
-    for (; i < sqList.length; i++) {
+    for (var i = 0; i < sqList.length; i++) {
         sqList[i].addEventListener('click', clickSquare);
     }
 }
@@ -53,13 +49,11 @@ function newGame() {
     loseModal.style.display = 'none';
     tieModal.style.display = 'none';
     var icon = document.getElementsByClassName('icon');
-    var i = 0;
-    var k = 0;
-    for (; i < icon.length; i++) {
+    for (var i = 0; i < icon.length; i++) {
         icon[i].style.display = 'none';
         console.log('hide icons');
     }
-    for(; k < sqList.length; k++) {
+    for(var k = 0; k < sqList.length; k++) {
         sqList[k].classList.add('playable');
         sqList[k].style.color = 'black';
         console.log('set squares to playable');
@@ -131,12 +125,12 @@ function clickSquare(e) {
 }
 
 function checkWinner(squares) {
-    var i = 0;
     function showModal(modal) {
         return modal.style.display = 'block';
     }
-    for (; i < winSet.length; i++) {
-        var win = winSet[i].every(function (element) {
+    var win = false;
+    for (var i = 0; i < winSet.length; i++) {
+        win = winSet[i].every(function (element) {
             return squares.indexOf(element) !== -1;
           });
         if (win) {
@@ -147,29 +141,26 @@ function checkWinner(squares) {
             document.getElementById(win[2]).style.color = 'green';
             if (game.turn === 1) {
                 setTimeout(function() {showModal(loseModal) } , 600);
-                console.log(game.compWins);
                 game.compWins += 1;
                 document.getElementById('comp-wins').textContent = game.compWins; 
-                console.log(game.compWins);
+                console.log("Comp wins: " + game.compWins);
                 break;
             }  else if (game.turn === 2) {
                 setTimeout(function() {showModal(winModal)} , 600);
-                console.log(game.userWins);
                 game.userWins += 1;
                 document.getElementById('user-wins').textContent = game.userWins;
-                console.log(game.userWins);
+                console.log("User wins: " + game.userWins);
                 break;
             }
-        } else if (!game.win && playList.length === 0) {
-            console.log(game.win);
-            setTimeout(function() {showModal(tieModal)}, 600);
-            console.log(game.ties);
-            game.ties += 1;
-            document.getElementById('ties').textContent = game.ties;
-            console.log(game.ties);
-            break;
         }
     }
+    if (!game.win && playList.length === 0) {
+        console.log('Tie? ' + game.win);
+        console.log('Playable squares: ' + playList.length);
+        setTimeout(function() {showModal(tieModal)}, 600);
+        game.ties += 1;
+        document.getElementById('ties').textContent = game.ties;
+    }    
     return game.win;
 }
 
